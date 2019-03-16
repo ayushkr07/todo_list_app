@@ -20,7 +20,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
     </ul>
-    <form class="form-inline my-2 my-lg-0">
+    <form class="form-inline my-2 my-lg-0" method="POST">
         {% csrf_token %}
       <input class="form-control mr-sm-2" type="search" placeholder="Add Item" aria-label="Search" name="item">
       <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Add to list</button>
