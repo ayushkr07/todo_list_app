@@ -15,11 +15,19 @@
     {% if all_items %}
         <table class="table table-bordered">
         {% for things in all_items %}
-            <tr>
-            <td>{{ things.item }}</td>
-            <td><center>{{things.completed}}</center></td>
-                <td><center><a href="{% url 'delete' things.id %}">Delete</a></center></td>
-            </tr>
+            {% if things.completed %}
+                <tr>
+                    <td class="striker">{{ things.item }}</td>
+                    <td><center><a href="{% url 'un_cross' things.id %}">UnCross</a></center></td>
+                    <td><center><a href="{% url 'delete' things.id %}">Delete</a></center></td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td>{{ things.item }}</td>
+                    <td><center><a href="{% url 'cross' things.id %}">Cross</a></center></td>
+                    <td><center><a href="{% url 'delete' things.id %}">Delete</a></center></td>
+                </tr>
+            {% endif %}
         {% endfor %}
         </table>
 

@@ -23,3 +23,15 @@ def delete(request,list_id):
     messages.success(request,('Item deleted!'))
     return redirect('home')
 
+def cross(request,list_id):
+    item=List.objects.get(pk=list_id)
+    item.completed=True
+    item.save()
+    return redirect('home')
+
+def un_cross(request,list_id):
+    item=List.objects.get(pk=list_id)
+    item.completed=False
+    item.save()
+    return redirect('home')
+
