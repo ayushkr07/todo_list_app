@@ -6,4 +6,5 @@ urlpatterns = [
     path('delete/<list_id>',views.delete,name="delete"),
     path('cross/<list_id>',views.cross,name="cross"),
     path('un_cross/<list_id>',views.un_cross,name="un_cross"),
+    path('edit/<list_id>',views.edit,name='edit'),
 ]

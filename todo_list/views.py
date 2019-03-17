@@ -35,3 +35,15 @@ def un_cross(request,list_id):
     item.save()
     return redirect('home')
 
+def edit(request,list_id):
+    if request.method=='POST':
+        item=List.objects.get(pk=list_id)
+        form=ListForm(request.POST or None,instance=item)
+        if form.is_valid:
+            form.save()
+            messages.success(request,('Item Edited!'))
+            return redirect('home')
+    else:
+        item=List.objects.get(pk=list_id)
+        return render(request,'todo_list/edit.html',{'item' :item})
+
